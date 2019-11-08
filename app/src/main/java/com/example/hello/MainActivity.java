@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import static android.graphics.Bitmap.createBitmap;
+import static android.graphics.Color.RGBToHSV;
 import static android.graphics.Color.colorToHSV;
 import static android.graphics.Color.rgb;
 
@@ -58,21 +59,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    void colorize(Bitmap img){
+    void colorize(Bitmap img){/*
         int rgb;
-        float hsv[];
+        float hsv[] = new float[3];
 
         for (int x = 0; x < img.getWidth(); x++) {
             for (int y = 0; y <img.getHeight(); y++) {
                 rgb = img.getPixel(x, y);
-                RGBToHSV(Color.red(rgb),Color.green(rgb), Color.blue(rgb))
-
-
+                RGBToHSV(Color.red(rgb), Color.green(rgb), Color.blue(rgb), hsv);
+                hsv[0]=100;
+                rgb =
                 colorToHSV(col, hsv);
 
                 img.setPixel(x, y, rgb);
             }
-        }
+        }*/
     }
 
 
