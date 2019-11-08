@@ -59,14 +59,18 @@ public class MainActivity extends AppCompatActivity {
 
 
     void colorize(Bitmap img){
-        int col;
-        float hsv[] = {(100),(1),(1)};
+        int rgb;
+        float hsv[];
 
         for (int x = 0; x < img.getWidth(); x++) {
             for (int y = 0; y <img.getHeight(); y++) {
-                col = img.getPixel(x, y);
+                rgb = img.getPixel(x, y);
+                RGBToHSV(Color.red(rgb),Color.green(rgb), Color.blue(rgb))
+
+
                 colorToHSV(col, hsv);
-                img.setPixel(x, y, col);
+
+                img.setPixel(x, y, rgb);
             }
         }
     }
