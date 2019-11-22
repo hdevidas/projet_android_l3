@@ -77,6 +77,82 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+    void passe_bas(Bitmap img){
+
+        //int noyau[] = {1,2,3,2,1,2,6,8,6,2,3,8,10,8,3,2,6,8,6,2,1,2,3,2,1};
+        int noyau[] = {1,2,1,2,3,2,1,2,1};
+
+        int line_size = 3; // sqrt (nb elem de noyau )
+        int decade = 1;
+        int coefficient = 15; // somme elems noyau
+        //int actual_px;
+        double sum;
+        double r;
+        double g;
+        double b;
+        int counter;
+
+
+
+        for (int x = decade; x < img.getWidth()-decade; x++) {
+            for (int y = decade; y < img.getHeight()-decade; y++){
+
+                //actual_px = img.getPixel(x,y);
+                sum = 0;
+                r = 0;
+                g = 0;
+                b = 0;
+                counter = 0;
+
+                for (int y2 = (y - decade); y2 < (y + decade); y2++ ){
+                    for (int x2 = (x - decade); x2 < (x + decade); x2++){
+                        //System.out.println(x2 + " " + y2);
+                        sum = sum + img.getPixel(x2,y2) * noyau[counter];
+
+
+                        //r = r + (Color.red(img.getPixel(x2,y2)) * noyau[counter]);
+                        //g = g + (Color.green(img.getPixel(x2,y2)) * noyau[counter]);
+                        //b = b + (Color.blue(img.getPixel(x2,y2)) * noyau[counter]);
+
+                        System.out.println("red: "+r+ ", green: "+g+", blue: "+b);
+
+                        //r = Color.red(img.getPixel(x, y));
+                        //g = Color.green(img.getPixel(x, y));
+                        //b = Color.blue(img.getPixel(x, y));
+
+
+
+                        //sum_r = sum_r + Color.red(img.getPixel(x2,y2)) * noyau[counter];
+                        //sum_g = sum_g + Color.green(img.getPixel(x2,y2)) * noyau[counter];
+                        //sum_b = sum_b + Color.blue(img.getPixel(x2,y2)) * noyau[counter];
+                        counter++;
+                    }
+                }
+
+                //sum_r = sum_r/coefficient;
+                //sum_g = sum_g/coefficient;
+                //sum_b = sum_b/coefficient;
+
+                //img.setPixel(x, y, (int)sum);
+                //img.setPixel(x, y, rgb((int)sum,(int)sum,(int)sum));
+
+                //r=r/15;
+                //g=g/15;
+                //b=b/15;
+
+                //sum = 0.3*r + 0.59*g + 0.11*b;
+                //sum = sum/15;
+                img.setPixel(x, y, rgb((int)sum, (int)sum,(int)sum));
+
+
+            }
+        }
+
+    }
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -117,6 +193,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 colorize(img);
+            }
+        });
+
+        //Button PasseBas
+        Button bt_passe_bas = findViewById(R.id.bt_passe_bas);
+        bt_passe_bas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                passe_bas(img);
             }
         });
 
