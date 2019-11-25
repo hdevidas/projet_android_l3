@@ -11,11 +11,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import java.util.Random;
 
 import static android.graphics.Bitmap.createBitmap;
+import static android.graphics.Color.HSVToColor;
 import static android.graphics.Color.RGBToHSV;
 import static android.graphics.Color.colorToHSV;
 import static android.graphics.Color.rgb;
+import static android.graphics.Color.valueOf;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -23,25 +26,9 @@ public class MainActivity extends AppCompatActivity {
     static Bitmap img;
     ImageView imv;
 
-    void defaultImg(){
-        BitmapFactory.Options opts = new BitmapFactory.Options();
-        opts.inMutable = true;
-        opts.inScaled = false;
-        img = BitmapFactory.decodeResource(getResources(), R.drawable.synth, opts);
-        imv.setImageBitmap(img);
-    }
+    //------- TD1 --------
 
-    static void crossImg(Bitmap img){
-        for (int x = 0; x < img.getWidth(); x++) {
-            for (int y = img.getHeight()/2 -25; y < img.getHeight()/2 +25; y++)
-                img.setPixel(x, y, rgb(255, 255, 255));
-        }
-        for (int y = 0; y < img.getHeight(); y++) {
-            for (int x = img.getWidth()/2 -25; x < img.getWidth()/2 +25; x++)
-                img.setPixel(x, y, rgb(255, 255, 255));
-        }
-    }
-
+    //CONVERTIE L'IMAGE EN NIVEAU DE GRIS AVEC GETPIXEL (NON OPTIMAL)
     void toGray(Bitmap img){
         double lum;
         int red;
@@ -58,26 +45,147 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-    void colorize(Bitmap img){/*
-        int rgb;
-        float hsv[] = new float[3];
-
-        for (int x = 0; x < img.getWidth(); x++) {
-            for (int y = 0; y <img.getHeight(); y++) {
-                rgb = img.getPixel(x, y);
-                RGBToHSV(Color.red(rgb), Color.green(rgb), Color.blue(rgb), hsv);
-                hsv[0]=100;
-                rgb =
-                colorToHSV(col, hsv);
-
-                img.setPixel(x, y, rgb);
+    //CONVERTIE L'IMAGE EN NIVEAU DE GRIS AVEC GETPIXELS (OPTIMAL)
+    void toGrayV2(Bitmap img){
+        int w = img.getWidth();
+        int h = img.getHeight();
+        int[] pixels = new int[w * h];
+        int red;
+        int green;
+        int blue;
+        int grey;
+        int alpha = 0xFF << 24;
+        img.getPixels(pixels, 0, w, 0, 0, w, h);
+        for (int x = 0; x < w; x++) {
+            for (int y = 0; y < h; y++) {
+                grey = pixels[w * x + y];
+                red = ((grey & 0x00FF0000) >> 16);
+                green = ((grey & 0x0000FF00) >> 8);
+                blue = (grey & 0x000000FF);
+                grey = (int) ((float) red * 0.3 + (float) green * 0.59 + (float) blue * 0.11);
+                grey = alpha | (grey << 16) | (grey << 8) | grey;
+                pixels[w * x + y] = grey;
             }
-        }*/
+        }
+        img.setPixels(pixels, 0, w, 0, 0, w, h);
+    }
+
+    //------- TD2 --------
+
+    //DESSINE UNE CROIX (FONCTION D'ENTRAINEMENT)
+    static void crossImg(Bitmap img){
+        for (int x = 0; x < img.getWidth(); x++) {
+            for (int y = img.getHeight()/2 -25; y < img.getHeight()/2 +25; y++)
+                img.setPixel(x, y, rgb(255, 255, 255));
+        }
+        for (int y = 0; y < img.getHeight(); y++) {
+            for (int x = img.getWidth()/2 -25; x < img.getWidth()/2 +25; x++)
+                img.setPixel(x, y, rgb(255, 255, 255));
+        }
+    }
+
+    //COLORISE L'IMAGE EN UNE COULEUR ALEATOIRE
+    void colorize(Bitmap img) {
+        Random random = new Random();
+        int w = img.getWidth();
+        int h = img.getHeight();
+        int[] pixels = new int[w * h];
+        int red;
+        int green;
+        int blue;
+        int color;
+        float hsv[] = new float[3];
+        int random_col = random.nextInt(254);
+
+        img.getPixels(pixels, 0, w, 0, 0, w, h);
+        for (int x = 0; x < w; x++) {
+            for (int y = 0; y < h; y++) {
+                color = pixels[w * x + y];
+                red = ((color & 0x00FF0000) >> 16);
+                green = ((color & 0x0000FF00) >> 8);
+                blue = (color & 0x000000FF);
+
+                RGBToHSV(red, green, blue, hsv);
+                hsv[0] = random_col;
+                color = HSVToColor(hsv);
+                pixels[w * x + y] = color;
+            }
+        }
+
+        img.setPixels(pixels, 0, w, 0, 0, w, h);
+    }
+
+    //A FAIRE : fonction de conversion personnelle "RGB/HSV"
+
+    //------- TD3 --------
+
+    //RESET IMAGE PAR DEFAUT
+    void defaultImg(){
+        BitmapFactory.Options opts = new BitmapFactory.Options();
+        opts.inMutable = true;
+        opts.inScaled = false;
+        img = BitmapFactory.decodeResource(getResources(), R.drawable.synth, opts);
+        imv.setImageBitmap(img);
+    }
+
+    //AUGMENTER LE CONTRASTE PAR EXTENSION DE DYNAMIQUE
+    void increase_constrast(Bitmap img) {
+        int w = img.getWidth();
+        int h = img.getHeight();
+        int[] pixels = new int[w * h];
+        int[] histo = new int [256];
+        //Initialisation de l'histogramme
+        for (int x = 0; x<256; x++){
+            histo[x] = 0;
+        }
+        img.getPixels(pixels, 0, w, 0, 0, w, h);
+        //int value;
+
+        int max_value = 240;
+        int min_value = 80;
+
+
+
+        /*
+        int max_value = pixels[w * 0 + 0];
+        int min_value = pixels[w * 0 + 0];
+
+        for (int x = 0; x < w; x++) {
+            for (int y = 1; y < h; y++) {
+                value = pixels[w * x + y];
+                histo[value] = histo[value]+1;
+                if (value > max_value){
+                    max_value = value;
+                }
+                else if (value < min_value){
+                    min_value = value;
+                }
+            }
+        }
+        */
+
+
+        System.out.println("blabla");
+
+        for (int x = 0; x < w; x++) {
+            for (int y = 0; y < h; y++) {
+                //pixels[w * x + y] = ( pixels[w * x + y] - min_value ) * 255 / (max_value - min_value);
+                //pixels[w * x + y] = (pixels[w * x + y]-min_value)*255/(max_value-min_value) ;
+                pixels[w * x + y] = (int) (255*((pixels[w * x + y]-min_value)/(double)(max_value-min_value)));
+            }
+        }
+        img.setPixels(pixels, 0, w, 0, 0, w, h);
+
+
+
     }
 
 
 
+    //------- TD4 --------
+
+    //------- TD5 --------
+    //FONCTION PASSE_BAS QUI CONTIENT ENCORE DES ERREURS ET UNE UTILISATION DE GETPIXEL AU LIEU DE GETPIXELS (SAME SET SETS)
     void passe_bas(Bitmap img){
 
         //int noyau[] = {1,2,3,2,1,2,6,8,6,2,3,8,10,8,3,2,6,8,6,2,1,2,3,2,1};
@@ -187,6 +295,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Button toGrayV2
+        Button bt_toGrayV2 = findViewById(R.id.bt_toGrayV2);
+        bt_toGrayV2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toGrayV2(img);
+            }
+        });
+
         //Button Colorize
         Button bt_colorize = findViewById(R.id.bt_colorize);
         bt_colorize.setOnClickListener(new View.OnClickListener() {
@@ -204,6 +321,17 @@ public class MainActivity extends AppCompatActivity {
                 passe_bas(img);
             }
         });
+
+        //Button de Test
+        Button bt_test = findViewById(R.id.bt_test);
+        bt_test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                increase_constrast(img);
+            }
+        });
+
+
 
         //Affichage de l'image
         defaultImg();
