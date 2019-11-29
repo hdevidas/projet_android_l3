@@ -1,99 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-
-    <TextView
-        android:id="@+id/textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.162" />
-
-
-    <ImageView
-        android:id="@+id/imgsynth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.861" />
 
     <Button
         android:id="@+id/bt_default"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:text="Default Image"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <Button
         android:id="@+id/bt_cross"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="144dp"
+        android:layout_above="@id/bt_default"
+        android:layout_centerInParent="true"
         android:text="Cross Changes"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bt_default"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/bt_toGray"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="44dp"
         android:text="To Gray"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bt_cross"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/bt_toGrayV2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginRight="76dp"
         android:text="To Gray V2"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_default" />
 
     <Button
         android:id="@+id/bt_colorize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginRight="320dp"
         android:text="Colorize"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/bt_toGrayV2"
+        app:layout_constraintTop_toBottomOf="@+id/bt_cross" />
+
+    <Button
+        android:id="@+id/bt_contrast_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Augmenter Contraste"
+        app:layout_constraintStart_toEndOf="@+id/bt_colorize"
+        app:layout_constraintTop_toBottomOf="@+id/bt_toGray" />
+
+    <Button
+        android:id="@+id/bt_contrast_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Diminuer Contraste"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_toGrayV2" />
+
+    <Button
+        android:id="@+id/bt_contrast_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contraste Couleur"
+        app:layout_constraintStart_toEndOf="@+id/bt_contrast_down"
+        app:layout_constraintTop_toBottomOf="@+id/bt_contrast_up" />
+
+    <Button
+        android:id="@+id/bt_histo_equal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Egal. Histo."
+        app:layout_constraintStart_toEndOf="@+id/bt_contrast_color"
+        app:layout_constraintTop_toBottomOf="@+id/bt_contrast_up" />
 
     <Button
         android:id="@+id/bt_passe_bas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginRight="204dp"
         android:text="Passe Bas"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_contrast_down" />
 
-    <Button
-        android:id="@+id/bt_test"
+    <ImageView
+        android:id="@+id/imgsynth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:layout_marginRight="320dp"
-        android:text="Test BTN"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.92" />
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

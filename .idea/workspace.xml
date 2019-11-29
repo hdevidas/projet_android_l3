@@ -9,22 +9,63 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87f67578-247d-4c57-bd6b-dd3c2c5b8542" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_annotation_annotation_1_0_0_jar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_annotation_annotation_1_0_0_jar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_appcompat_appcompat_1_0_2_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_appcompat_appcompat_1_0_2_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_arch_core_core_common_2_0_0_jar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_arch_core_core_common_2_0_0_jar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_arch_core_core_runtime_2_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_arch_core_core_runtime_2_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_asynclayoutinflater_asynclayoutinflater_1_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_asynclayoutinflater_asynclayoutinflater_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_collection_collection_1_0_0_jar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_collection_collection_1_0_0_jar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_1_1_3_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_1_1_3_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_solver_1_1_3_jar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_solver_1_1_3_jar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_coordinatorlayout_coordinatorlayout_1_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_coordinatorlayout_coordinatorlayout_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_core_core_1_0_1_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_core_core_1_0_1_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_cursoradapter_cursoradapter_1_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_cursoradapter_cursoradapter_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_customview_customview_1_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_customview_customview_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_documentfile_documentfile_1_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_documentfile_documentfile_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_drawerlayout_drawerlayout_1_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_drawerlayout_drawerlayout_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_fragment_fragment_1_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_fragment_fragment_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_interpolator_interpolator_1_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_interpolator_interpolator_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_ui_1_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_ui_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_utils_1_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_utils_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_common_2_0_0_jar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_common_2_0_0_jar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_2_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_2_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_core_2_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_core_2_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_runtime_2_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_runtime_2_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_2_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_2_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_loader_loader_1_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_loader_loader_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_localbroadcastmanager_localbroadcastmanager_1_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_localbroadcastmanager_localbroadcastmanager_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_print_print_1_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_print_print_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_slidingpanelayout_slidingpanelayout_1_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_slidingpanelayout_slidingpanelayout_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_swiperefreshlayout_swiperefreshlayout_1_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_swiperefreshlayout_swiperefreshlayout_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_test_espresso_espresso_core_3_1_1_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_test_espresso_espresso_core_3_1_1_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_test_espresso_espresso_idling_resource_3_1_1_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_test_espresso_espresso_idling_resource_3_1_1_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_test_monitor_1_1_1_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_test_monitor_1_1_1_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_test_runner_1_1_1_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_test_runner_1_1_1_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_1_0_1_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_1_0_1_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_animated_1_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_animated_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_versionedparcelable_versionedparcelable_1_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_versionedparcelable_versionedparcelable_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_viewpager_viewpager_1_0_0_aar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__androidx_viewpager_viewpager_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__com_google_code_findbugs_jsr305_2_0_1_jar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__com_google_code_findbugs_jsr305_2_0_1_jar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__com_squareup_javawriter_2_1_1_jar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__com_squareup_javawriter_2_1_1_jar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__javax_inject_javax_inject_1_jar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__javax_inject_javax_inject_1_jar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__junit_junit_4_12_jar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__junit_junit_4_12_jar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__net_sf_kxml_kxml2_2_3_0_jar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__net_sf_kxml_kxml2_2_3_0_jar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3_jar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3_jar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__org_hamcrest_hamcrest_integration_1_3_jar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__org_hamcrest_hamcrest_integration_1_3_jar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__org_hamcrest_hamcrest_library_1_3_jar.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/libraries/Gradle__org_hamcrest_hamcrest_library_1_3_jar.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/modules.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/modules.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/workspace.xml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/Hello.iml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/Hello.iml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/app/app.iml" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/app/app.iml" afterDir="false" />
+      <change beforePath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/local.properties" beforeDir="false" afterPath="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/local.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_annotation_annotation_1_0_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_annotation_annotation_1_0_0_jar.xml" afterDir="false" />
@@ -74,10 +115,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hello.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Hello.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/hello/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/hello/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -89,7 +126,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_6_API_28" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_6_API_27" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -103,51 +140,41 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hello/MainActivity.java">
+        <entry file="file:///autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/app/src/main/java/com/example/hello/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="159" column="44" lean-forward="true" selection-start-line="159" selection-start-column="44" selection-end-line="159" selection-end-column="44" />
+            <state relative-caret-position="231">
+              <caret line="233" column="35" lean-forward="true" selection-start-line="233" selection-start-column="35" selection-end-line="233" selection-end-column="35" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#8345#8491#0" expanded="true" />
-                <element signature="e#8490#8491#0" expanded="true" />
-                <element signature="e#8609#8756#0" expanded="true" />
-                <element signature="e#8755#8756#0" expanded="true" />
-                <element signature="e#8878#9023#0" expanded="true" />
-                <element signature="e#9022#9023#0" expanded="true" />
-                <element signature="e#9153#9300#0" expanded="true" />
-                <element signature="e#9299#9300#0" expanded="true" />
-                <element signature="e#9430#9577#0" expanded="true" />
-                <element signature="e#9576#9577#0" expanded="true" />
-                <element signature="e#9710#9858#0" expanded="true" />
-                <element signature="e#9857#9858#0" expanded="true" />
-                <element signature="e#9975#10132#0" expanded="true" />
-                <element signature="e#10131#10132#0" expanded="true" />
+                <element signature="e#12133#12279#0" expanded="true" />
+                <element signature="e#12278#12279#0" expanded="true" />
+                <element signature="e#12397#12544#0" expanded="true" />
+                <element signature="e#12543#12544#0" expanded="true" />
+                <element signature="e#12666#12811#0" expanded="true" />
+                <element signature="e#12810#12811#0" expanded="true" />
+                <element signature="e#12941#13088#0" expanded="true" />
+                <element signature="e#13087#13088#0" expanded="true" />
+                <element signature="e#13218#13365#0" expanded="true" />
+                <element signature="e#13364#13365#0" expanded="true" />
+                <element signature="e#13515#13665#0" expanded="true" />
+                <element signature="e#13664#13665#0" expanded="true" />
+                <element signature="e#13820#13982#0" expanded="true" />
+                <element signature="e#13981#13982#0" expanded="true" />
+                <element signature="e#14153#14306#0" expanded="true" />
+                <element signature="e#14305#14306#0" expanded="true" />
+                <element signature="e#14456#14606#0" expanded="true" />
+                <element signature="e#14605#14606#0" expanded="true" />
+                <element signature="e#14739#14887#0" expanded="true" />
+                <element signature="e#14886#14887#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor" />
-          <provider editor-type-id="android-manifest" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/example/hello/BuildConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+        <entry file="file:///autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/app/src/main/res/layout/activity_main.xml">
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="88" column="4" selection-start-line="88" selection-start-column="4" selection-end-line="88" selection-end-column="4" />
+            <state relative-caret-position="329">
+              <caret line="68" column="4" selection-start-line="68" selection-start-column="4" selection-end-line="68" selection-end-column="4" />
             </state>
           </provider>
           <provider selected="true" editor-type-id="android-designer2" />
@@ -170,30 +197,58 @@
         <option value="/autofs/unitytravail/travail/hdevidas/Android/projet_android_l3/app/src/main/java/com/example/hello/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/hello/MainActivity.java" />
+        <option value="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/app/src/main/res/layout/activity_main.xml" />
+        <option value="/autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/app/src/main/java/com/example/hello/MainActivity.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="137" />
-    <option name="y" value="27" />
-    <option name="width" value="1657" />
-    <option name="height" value="941" />
+    <option name="x" value="1021" />
+    <option name="width" value="1606" />
+    <option name="height" value="1203" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="ProjectPane" />
-      <pane id="Scope" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Hello" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="Hello" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="Hello" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="Hello" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Nexus_6_API_28" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2019-11-24T12:34:57.723Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Nexus_6_API_27" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2019-11-29T13:49:57.064Z" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="/opt/users/android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -341,11 +396,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
-    <editor active="true" />
+    <frame x="-3" y="31" width="1926" height="1172" extended-state="6" />
     <layout>
       <window_info id="Captures" order="0" sideWeight="0.5007342" side_tool="true" weight="0.32924226" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4992658" visible="true" weight="0.33314887" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4992658" visible="true" weight="0.34311634" />
       <window_info id="Structure" order="2" sideWeight="0.5007342" side_tool="true" weight="0.32924226" />
       <window_info id="Favorites" order="3" sideWeight="0.5007342" side_tool="true" weight="0.32924226" />
       <window_info id="Build Variants" order="4" sideWeight="0.5007342" side_tool="true" weight="0.32924226" />
@@ -353,14 +407,14 @@
       <window_info id="Designer" order="6" />
       <window_info id="Resources Explorer" order="7" />
       <window_info id="Capture Tool" order="8" />
-      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.4994664" weight="0.32937366" />
-      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.4994664" weight="0.8866091" />
+      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.4994664" weight="0.15255906" />
+      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.4994664" weight="0.39862204" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.3297244" />
       <window_info anchor="bottom" id="Debug" order="3" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.3297244" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50053364" side_tool="true" weight="0.32874015" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.3297244" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.4994664" weight="0.18682505" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.4994664" weight="0.18503937" />
       <window_info anchor="bottom" id="Find" order="8" />
       <window_info anchor="bottom" id="Android Profiler" order="9" weight="0.6058315" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" weight="0.32977587" />
@@ -378,45 +432,78 @@
     <entry file="file:///autofs/unitytravail/travail/hdevidas/Android/projet_android_l3/app/src/main/res/layout/activity_main.xml" />
     <entry file="file:///autofs/unitytravail/travail/hdevidas/Android/projet_android_l3/app/src/main/res/drawable/synth.jpg" />
     <entry file="file:///autofs/unitytravail/travail/hdevidas/Android/projet_android_l3/app/src/main/java/com/example/hello/MainActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/example/hello/BuildConfig.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="android-manifest" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/example/hello/BuildConfig.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        <state relative-caret-position="1320">
+          <caret line="88" column="4" selection-start-line="88" selection-start-column="4" selection-end-line="88" selection-end-column="4" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hello/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="158" column="5" selection-start-line="158" selection-start-column="5" selection-end-line="158" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#9457#9603#0" expanded="true" />
+            <element signature="e#9602#9603#0" expanded="true" />
+            <element signature="e#9721#9868#0" expanded="true" />
+            <element signature="e#9867#9868#0" expanded="true" />
+            <element signature="e#9990#10135#0" expanded="true" />
+            <element signature="e#10134#10135#0" expanded="true" />
+            <element signature="e#10265#10412#0" expanded="true" />
+            <element signature="e#10411#10412#0" expanded="true" />
+            <element signature="e#10542#10689#0" expanded="true" />
+            <element signature="e#10688#10689#0" expanded="true" />
+            <element signature="e#10839#10989#0" expanded="true" />
+            <element signature="e#10988#10989#0" expanded="true" />
+            <element signature="e#11144#11296#0" expanded="true" />
+            <element signature="e#11295#11296#0" expanded="true" />
+            <element signature="e#11423#11571#0" expanded="true" />
+            <element signature="e#11570#11571#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+    <entry file="file:///autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/app/src/main/res/layout/activity_main.xml">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="88" column="4" selection-start-line="88" selection-start-column="4" selection-end-line="88" selection-end-column="4" />
+        <state relative-caret-position="329">
+          <caret line="68" column="4" selection-start-line="68" selection-start-column="4" selection-end-line="68" selection-end-column="4" />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hello/MainActivity.java">
+    <entry file="file:///autofs/unitytravail/travail/hdevidas/Projets/projet_android_l3/app/src/main/java/com/example/hello/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="159" column="44" lean-forward="true" selection-start-line="159" selection-start-column="44" selection-end-line="159" selection-end-column="44" />
+        <state relative-caret-position="231">
+          <caret line="233" column="35" lean-forward="true" selection-start-line="233" selection-start-column="35" selection-end-line="233" selection-end-column="35" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#8345#8491#0" expanded="true" />
-            <element signature="e#8490#8491#0" expanded="true" />
-            <element signature="e#8609#8756#0" expanded="true" />
-            <element signature="e#8755#8756#0" expanded="true" />
-            <element signature="e#8878#9023#0" expanded="true" />
-            <element signature="e#9022#9023#0" expanded="true" />
-            <element signature="e#9153#9300#0" expanded="true" />
-            <element signature="e#9299#9300#0" expanded="true" />
-            <element signature="e#9430#9577#0" expanded="true" />
-            <element signature="e#9576#9577#0" expanded="true" />
-            <element signature="e#9710#9858#0" expanded="true" />
-            <element signature="e#9857#9858#0" expanded="true" />
-            <element signature="e#9975#10132#0" expanded="true" />
-            <element signature="e#10131#10132#0" expanded="true" />
+            <element signature="e#12133#12279#0" expanded="true" />
+            <element signature="e#12278#12279#0" expanded="true" />
+            <element signature="e#12397#12544#0" expanded="true" />
+            <element signature="e#12543#12544#0" expanded="true" />
+            <element signature="e#12666#12811#0" expanded="true" />
+            <element signature="e#12810#12811#0" expanded="true" />
+            <element signature="e#12941#13088#0" expanded="true" />
+            <element signature="e#13087#13088#0" expanded="true" />
+            <element signature="e#13218#13365#0" expanded="true" />
+            <element signature="e#13364#13365#0" expanded="true" />
+            <element signature="e#13515#13665#0" expanded="true" />
+            <element signature="e#13664#13665#0" expanded="true" />
+            <element signature="e#13820#13982#0" expanded="true" />
+            <element signature="e#13981#13982#0" expanded="true" />
+            <element signature="e#14153#14306#0" expanded="true" />
+            <element signature="e#14305#14306#0" expanded="true" />
+            <element signature="e#14456#14606#0" expanded="true" />
+            <element signature="e#14605#14606#0" expanded="true" />
+            <element signature="e#14739#14887#0" expanded="true" />
+            <element signature="e#14886#14887#0" expanded="true" />
           </folding>
         </state>
       </provider>

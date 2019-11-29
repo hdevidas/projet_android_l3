@@ -128,58 +128,130 @@ public class MainActivity extends AppCompatActivity {
         imv.setImageBitmap(img);
     }
 
-    //AUGMENTER LE CONTRASTE PAR EXTENSION DE DYNAMIQUE
-    void increase_constrast(Bitmap img) {
+    //AUGMENTER LE CONTRASTE PAR EXTENSION DE DYNAMIQUE (!!A APPLIQUER SUR IMAGE EN NIVEAU DE GRIS!!)
+    void contrast_up(Bitmap img) {
         int w = img.getWidth();
         int h = img.getHeight();
         int[] pixels = new int[w * h];
-        int[] histo = new int [256];
-        //Initialisation de l'histogramme
-        for (int x = 0; x<256; x++){
-            histo[x] = 0;
-        }
         img.getPixels(pixels, 0, w, 0, 0, w, h);
-        //int value;
 
-        int max_value = 240;
-        int min_value = 80;
-
-
-
-        /*
-        int max_value = pixels[w * 0 + 0];
-        int min_value = pixels[w * 0 + 0];
+        int max_value = ((pixels[0] & 0x00FF0000) >> 16);
+        int min_value = ((pixels[0] & 0x00FF0000) >> 16);
 
         for (int x = 0; x < w; x++) {
             for (int y = 1; y < h; y++) {
-                value = pixels[w * x + y];
-                histo[value] = histo[value]+1;
-                if (value > max_value){
-                    max_value = value;
+                if(((pixels[w*x+y] & 0x00FF0000) >> 16) > max_value){
+                    max_value = ((pixels[w*x+y] & 0x00FF0000) >> 16);
                 }
-                else if (value < min_value){
-                    min_value = value;
+                if(((pixels[w*x+y] & 0x00FF0000) >> 16) < min_value){
+                    min_value = ((pixels[w*x+y] & 0x00FF0000) >> 16);
                 }
             }
         }
-        */
-
-
-        System.out.println("blabla");
-
+        double red;
         for (int x = 0; x < w; x++) {
             for (int y = 0; y < h; y++) {
-                //pixels[w * x + y] = ( pixels[w * x + y] - min_value ) * 255 / (max_value - min_value);
-                //pixels[w * x + y] = (pixels[w * x + y]-min_value)*255/(max_value-min_value) ;
-                pixels[w * x + y] = (int) (255*((pixels[w * x + y]-min_value)/(double)(max_value-min_value)));
+                red = (double)255 / (max_value - min_value) * (((pixels[w*x+y] & 0x00FF0000) >> 16) - min_value);
+                pixels[w * x + y] = ((int)red & 0xff) << 16 | ((int)red & 0xff) << 8 | ((int)red & 0xff);
             }
         }
         img.setPixels(pixels, 0, w, 0, 0, w, h);
-
-
-
     }
 
+    void contrast_down(Bitmap img,int min_value, int max_value) {
+        int w = img.getWidth();
+        int h = img.getHeight();
+        int[] pixels = new int[w * h];
+        img.getPixels(pixels, 0, w, 0, 0, w, h);
+        double red;
+        for (int x = 0; x < w; x++) {
+            for (int y = 0; y < h; y++) {
+                red = ((pixels[w*x+y] & 0x00FF0000) >> 16) / (double)255 * (max_value - min_value) + min_value;
+                pixels[w * x + y] = ((int)red & 0xff) << 16 | ((int)red & 0xff) << 8 | ((int)red & 0xff);
+            }
+        }
+        img.setPixels(pixels, 0, w, 0, 0, w, h);
+    }
+
+    void contrast_color(Bitmap img) {
+        int w = img.getWidth();
+        int h = img.getHeight();
+        int[] pixels = new int[w * h];
+        img.getPixels(pixels, 0, w, 0, 0, w, h);
+
+        int max_value_r = ((pixels[0] & 0x00FF0000) >> 16);
+        int min_value_r = ((pixels[0] & 0x00FF0000) >> 16);
+
+        int max_value_g = ((pixels[0] & 0x0000FF00) >> 8);
+        int min_value_g = ((pixels[0] & 0x0000FF00) >> 8);
+
+        int max_value_b = (pixels[0] & 0x000000FF);
+        int min_value_b = (pixels[0] & 0x000000FF);
+
+        for (int x = 0; x < w; x++) {
+            for (int y = 1; y < h; y++) {
+                if(((pixels[w*x+y] & 0x00FF0000) >> 16) > max_value_r){
+                    max_value_r = ((pixels[w*x+y] & 0x00FF0000) >> 16);
+                }
+                if(((pixels[w*x+y] & 0x00FF0000) >> 16) < min_value_r){
+                    min_value_r = ((pixels[w*x+y] & 0x00FF0000) >> 16);
+                }
+                if(((pixels[w*x+y] & 0x0000FF00) >> 8) > max_value_g){
+                    max_value_g = ((pixels[w*x+y] & 0x0000FF00) >> 8);
+                }
+                if(((pixels[w*x+y] & 0x0000FF00) >> 8) < min_value_g){
+                    min_value_g = ((pixels[w*x+y] & 0x0000FF00) >> 8);
+                }
+                if((pixels[w*x+y] & 0x000000FF) > max_value_b){
+                    max_value_b = (pixels[w*x+y] & 0x000000FF);
+                }
+                if((pixels[w*x+y] & 0x000000FF) < min_value_b){
+                    min_value_b = (pixels[w*x+y] & 0x000000FF);
+                }
+            }
+        }
+
+        double red;
+        double green;
+        double blue;
+        for (int x = 0; x < w; x++) {
+            for (int y = 0; y < h; y++) {
+                red = (double)255 / (max_value_r - min_value_r) * (((pixels[w*x+y] & 0x00FF0000) >> 16) - min_value_r);
+                green = (double)255 / (max_value_g - min_value_g) * (((pixels[w*x+y] & 0x0000FF00) >> 8) - min_value_g);
+                blue = (double)255 / (max_value_b - min_value_b) * ((pixels[w*x+y] & 0x000000FF) - min_value_b);
+                pixels[w * x + y] = ((int)red & 0xff) << 16 | ((int)green & 0xff) << 8 | ((int)blue & 0xff);
+            }
+        }
+        img.setPixels(pixels, 0, w, 0, 0, w, h);
+    }
+
+    //AUGMENTER LE CONTRASTE PAR EGALISATION D'HISTOGRAMME
+    void histo_equal(Bitmap img) {
+        int w = img.getWidth();
+        int h = img.getHeight();
+        int[] pixels = new int[w * h];
+        img.getPixels(pixels, 0, w, 0, 0, w, h);
+        int[] histo = new int[256];
+        int px_nb = w*h /256;
+        for (int x = 0; x < w; x++) {
+            for (int y = 0; y < h; y++) {
+               histo[((pixels[w*x+y] & 0x00FF0000) >> 16)] = histo[((pixels[w*x+y] & 0x00FF0000) >> 16)] +1;
+            }
+        }
+        for (int i = 1; i < 256; i++) {
+            histo[i] = histo[i] + histo[i-1];
+        }
+
+        double red;
+        for (int x = 0; x < w; x++) {
+            for (int y = 0; y < h; y++) {
+                red = (histo[((pixels[w*x+y] & 0x00FF0000) >> 16)] *255) /px_nb;
+                pixels[w * x + y] = ((int)red & 0xff) << 16 | ((int)red & 0xff) << 8 | ((int)red & 0xff);
+            }
+        }
+
+        img.setPixels(pixels, 0, w, 0, 0, w, h);
+    }
 
 
     //------- TD4 --------
@@ -313,6 +385,42 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Button Augmenter Contraste
+        Button bt_contrast_up = findViewById(R.id.bt_contrast_up);
+        bt_contrast_up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                contrast_up(img);
+            }
+        });
+
+        //Button Diminuer Contraste
+        Button bt_contrast_down = findViewById(R.id.bt_contrast_down);
+        bt_contrast_down.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                contrast_down(img, 100, 156);
+            }
+        });
+
+        //Button Augmenter Contraste EN COULEURS
+        Button bt_contrast_color = findViewById(R.id.bt_contrast_color);
+        bt_contrast_color.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                contrast_color(img);
+            }
+        });
+
+        //Button Augmenter Contraste
+        Button bt_histo_equal = findViewById(R.id.bt_histo_equal);
+        bt_histo_equal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                histo_equal(img);
+            }
+        });
+
         //Button PasseBas
         Button bt_passe_bas = findViewById(R.id.bt_passe_bas);
         bt_passe_bas.setOnClickListener(new View.OnClickListener() {
@@ -322,14 +430,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Button de Test
-        Button bt_test = findViewById(R.id.bt_test);
-        bt_test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                increase_constrast(img);
-            }
-        });
 
 
 
