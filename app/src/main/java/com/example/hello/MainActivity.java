@@ -25,6 +25,24 @@ public class MainActivity extends AppCompatActivity {
 
     static Bitmap img;
     ImageView imv;
+    //noyau utilisé pour le filtre de convolution (!! DOIT ETRE DE TAILLE 2N+1 * 2N+1 !!)
+
+    /*int noyau[] = new int[]{
+            1, 2, 3, 2, 1,
+            2, 6, 8, 6, 2,
+            3, 8, 10, 8, 3,
+            2, 6, 8, 6, 2,
+            1, 2, 3, 2, 1};*/
+
+    int noyau[] = new int[]{
+            1, 2, 3, 5, 3, 2, 1,
+            2, 6, 8, 12, 8, 6, 2,
+            3, 8, 10, 15, 10, 8, 3,
+            5, 12, 15, 20, 15, 12, 5,
+            3, 8, 10, 15, 10, 8, 3,
+            2, 6, 8, 12, 8, 6, 2,
+            1, 2, 3, 5, 3, 2, 1};
+
 
     //------- TD1 --------
 
@@ -232,7 +250,7 @@ public class MainActivity extends AppCompatActivity {
         int[] pixels = new int[w * h];
         img.getPixels(pixels, 0, w, 0, 0, w, h);
         int[] histo = new int[256];
-        int px_nb = w*h /256;
+        int nb_px = w*h;
         for (int x = 0; x < w; x++) {
             for (int y = 0; y < h; y++) {
                histo[((pixels[w*x+y] & 0x00FF0000) >> 16)] = histo[((pixels[w*x+y] & 0x00FF0000) >> 16)] +1;
@@ -242,10 +260,14 @@ public class MainActivity extends AppCompatActivity {
             histo[i] = histo[i] + histo[i-1];
         }
 
+        int rouge; //compris entre 0 et 255
+        double histo_rouge;
         double red;
         for (int x = 0; x < w; x++) {
             for (int y = 0; y < h; y++) {
-                red = (histo[((pixels[w*x+y] & 0x00FF0000) >> 16)] *255) /px_nb;
+                rouge = (pixels[w*x+y] & 0x00FF0000) >> 16;
+                histo_rouge = (double)(histo[rouge] * 255);
+                red = Math.round(histo_rouge / nb_px);
                 pixels[w * x + y] = ((int)red & 0xff) << 16 | ((int)red & 0xff) << 8 | ((int)red & 0xff);
             }
         }
@@ -254,80 +276,198 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    //AUGMENTER LE CONTRASTE PAR EGALISATION D'HISTOGRAMME EN COULEUR
+    void histo_color(Bitmap img) {
+        int w = img.getWidth();
+        int h = img.getHeight();
+        int[] pixels = new int[w * h];
+        img.getPixels(pixels, 0, w, 0, 0, w, h);
+        int[] histo_r = new int[256];
+        int[] histo_g = new int[256];
+        int[] histo_b = new int[256];
+        int nb_px = w*h;
+        for (int x = 0; x < w; x++) {
+            for (int y = 0; y < h; y++) {
+                histo_r[((pixels[w*x+y] & 0x00FF0000) >> 16)] = histo_r[((pixels[w*x+y] & 0x00FF0000) >> 16)] +1;
+                histo_g[((pixels[w*x+y] & 0x0000FF00) >> 8)] = histo_g[((pixels[w*x+y] & 0x0000FF00) >> 8)] +1;
+                histo_b[((pixels[w*x+y] & 0x000000FF))] = histo_b[((pixels[w*x+y] & 0x000000FF))] +1;
+            }
+        }
+        for (int i = 1; i < 256; i++) {
+            histo_r[i] = histo_r[i] + histo_r[i-1];
+            histo_g[i] = histo_g[i] + histo_g[i-1];
+            histo_b[i] = histo_b[i] + histo_b[i-1];
+        }
+
+        double histo_red;
+        double r;
+        double histo_green;
+        double g;
+        double histo_blue;
+        double b;
+        for (int x = 0; x < w; x++) {
+            for (int y = 0; y < h; y++) {
+                histo_red = (double)(histo_r[(pixels[w*x+y] & 0x00FF0000) >> 16] * 255);
+                r = Math.round(histo_red / nb_px);
+                histo_green = (double)(histo_g[(pixels[w*x+y] & 0x0000FF00) >> 8] * 255);
+                g = Math.round(histo_green / nb_px);
+                histo_blue = (double)(histo_b[(pixels[w*x+y] & 0x000000FF)] * 255);
+                b = Math.round(histo_blue / nb_px);
+                pixels[w * x + y] = ((int)r & 0xff) << 16 | ((int)g & 0xff) << 8 | ((int)b & 0xff);
+            }
+        }
+
+        img.setPixels(pixels, 0, w, 0, 0, w, h);
+    }
+
+
     //------- TD4 --------
+    //RENDERSCRIPT
+
+
+
 
     //------- TD5 --------
-    //FONCTION PASSE_BAS QUI CONTIENT ENCORE DES ERREURS ET UNE UTILISATION DE GETPIXEL AU LIEU DE GETPIXELS (SAME SET SETS)
-    void passe_bas(Bitmap img){
 
-        //int noyau[] = {1,2,3,2,1,2,6,8,6,2,3,8,10,8,3,2,6,8,6,2,1,2,3,2,1};
-        int noyau[] = {1,2,1,2,3,2,1,2,1};
+    //FONCTION FILTRE MOYENNEUR
+    void filtre_moyenneur(Bitmap img, int size){
+        int w = img.getWidth();
+        int h = img.getHeight();
+        int[] pixels = new int[w * h];
+        int[] pixels_new = new int[w * h];
+        img.getPixels(pixels, 0, w, 0, 0, w, h);
 
-        int line_size = 3; // sqrt (nb elem de noyau )
-        int decade = 1;
-        int coefficient = 15; // somme elems noyau
-        //int actual_px;
-        double sum;
+        int offset = (size-1) /2;
+
+        int coefficient = offset * 2 +1 ;
         double r;
         double g;
         double b;
         int counter;
 
+        for (int x = offset; x < img.getWidth()-offset; x++) {
+            for (int y = offset; y < img.getHeight()-offset; y++){
 
-
-        for (int x = decade; x < img.getWidth()-decade; x++) {
-            for (int y = decade; y < img.getHeight()-decade; y++){
-
-                //actual_px = img.getPixel(x,y);
-                sum = 0;
                 r = 0;
                 g = 0;
                 b = 0;
                 counter = 0;
 
-                for (int y2 = (y - decade); y2 < (y + decade); y2++ ){
-                    for (int x2 = (x - decade); x2 < (x + decade); x2++){
-                        //System.out.println(x2 + " " + y2);
-                        sum = sum + img.getPixel(x2,y2) * noyau[counter];
+                for (int x2 = (x - offset); x2 <= (x + offset); x2++ ){
+                    for (int y2 = (y - offset); y2 <= (y + offset); y2++){
+                        r = r + ((pixels[w*x2+y2] & 0x00FF0000) >> 16) ;
+                        g = g + ((pixels[w*x2+y2] & 0x0000FF00) >> 8) ;
+                        b = b + ((pixels[w*x2+y2] & 0x000000FF));
 
-
-                        //r = r + (Color.red(img.getPixel(x2,y2)) * noyau[counter]);
-                        //g = g + (Color.green(img.getPixel(x2,y2)) * noyau[counter]);
-                        //b = b + (Color.blue(img.getPixel(x2,y2)) * noyau[counter]);
-
-                        System.out.println("red: "+r+ ", green: "+g+", blue: "+b);
-
-                        //r = Color.red(img.getPixel(x, y));
-                        //g = Color.green(img.getPixel(x, y));
-                        //b = Color.blue(img.getPixel(x, y));
-
-
-
-                        //sum_r = sum_r + Color.red(img.getPixel(x2,y2)) * noyau[counter];
-                        //sum_g = sum_g + Color.green(img.getPixel(x2,y2)) * noyau[counter];
-                        //sum_b = sum_b + Color.blue(img.getPixel(x2,y2)) * noyau[counter];
                         counter++;
                     }
                 }
 
-                //sum_r = sum_r/coefficient;
-                //sum_g = sum_g/coefficient;
-                //sum_b = sum_b/coefficient;
+                r = r/coefficient;
+                g = g/coefficient;
+                b = b/coefficient;
 
-                //img.setPixel(x, y, (int)sum);
-                //img.setPixel(x, y, rgb((int)sum,(int)sum,(int)sum));
+                pixels_new[w*x+y] = ((int)r & 0xff) << 16 | ((int)g & 0xff) << 8 | ((int)b & 0xff);
 
-                //r=r/15;
-                //g=g/15;
-                //b=b/15;
-
-                //sum = 0.3*r + 0.59*g + 0.11*b;
-                //sum = sum/15;
-                img.setPixel(x, y, rgb((int)sum, (int)sum,(int)sum));
 
 
             }
         }
+
+        img.setPixels(pixels_new, 0, w, 0, 0, w, h);
+
+    }
+
+    //FONCTION FILTRE GAUSSIEN
+    void filtre_gaussien(Bitmap img, int[] noyau){
+        int w = img.getWidth();
+        int h = img.getHeight();
+        int[] pixels = new int[w * h];
+        int[] pixels_new = new int[w * h];
+        img.getPixels(pixels, 0, w, 0, 0, w, h);
+
+        double line_size = Math.sqrt((noyau.length));
+        int offset = (int) ((line_size -1) /2);
+
+        int coefficient = 0;
+        for (int value : noyau) {
+            coefficient += value;
+        }
+
+        double r;
+        double g;
+        double b;
+        int counter;
+
+        for (int x = offset; x < img.getWidth()-offset; x++) {
+            for (int y = offset; y < img.getHeight()-offset; y++){
+
+                r = 0;
+                g = 0;
+                b = 0;
+                counter = 0;
+
+                for (int x2 = (x - offset); x2 <= (x + offset); x2++ ){
+                    for (int y2 = (y - offset); y2 <= (y + offset); y2++){
+                        r = r + ((pixels[w*x2+y2] & 0x00FF0000) >> 16) * noyau[counter];
+                        g = g + ((pixels[w*x2+y2] & 0x0000FF00) >> 8) * noyau[counter];
+                        b = b + ((pixels[w*x2+y2] & 0x000000FF)) * noyau[counter];
+
+                        counter++;
+                    }
+                }
+
+                r = r/coefficient;
+                g = g/coefficient;
+                b = b/coefficient;
+
+                pixels_new[w*x+y] = ((int)r & 0xff) << 16 | ((int)g & 0xff) << 8 | ((int)b & 0xff);
+
+
+
+            }
+        }
+
+        img.setPixels(pixels_new, 0, w, 0, 0, w, h);
+
+    }
+
+
+    //FONCTION DE DETECTION DE CONTOURS
+    void detect_contours(Bitmap img, int coefficient){
+        int w = img.getWidth();
+        int h = img.getHeight();
+        int[] pixels = new int[w * h];
+        int[] new_pixels = new int[w * h];
+        img.getPixels(pixels, 0, w, 0, 0, w, h);
+
+        int offset = (coefficient -1) /2;
+
+        double gx;
+        double gy;
+        double g_xy;
+
+        for (int x = offset; x < img.getWidth()-offset; x++) {
+            for (int y = offset; y < img.getHeight()-offset; y++){
+                gx = 0;
+                for (int y2 = (y - offset); y2 <= (y + offset); y2++ ){
+                    gx = gx + ((pixels[y2 + (x+1)*w] & 0x00FF0000) >> 16) - ((pixels[y2 + (x-1)*w] & 0x00FF0000) >> 16);
+                }
+                gx = gx/coefficient;
+
+                gy = 0;
+                for (int x2 = (x - offset); x2 <= (x + offset); x2++ ){
+                    gy = gy + ((pixels[w*x2 +y+1] & 0x00FF0000) >> 16) - ((pixels[w*x2 +y-1] & 0x00FF0000) >> 16);
+                }
+                gy = gy/coefficient;
+
+                g_xy=(gy+gx)/2;
+                new_pixels[w*x+y] = ((int)gx & 0xff) << 16 | ((int)gx & 0xff) << 8 | ((int)gx & 0xff);
+                new_pixels[w*x+y] = ((int)g_xy & 0xff) << 16 | ((int)g_xy & 0xff) << 8 | ((int)g_xy & 0xff);
+            }
+        }
+
+        img.setPixels(new_pixels, 0, w, 0, 0, w, h);
 
     }
 
@@ -390,6 +530,7 @@ public class MainActivity extends AppCompatActivity {
         bt_contrast_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                toGrayV2(img);
                 contrast_up(img);
             }
         });
@@ -399,6 +540,7 @@ public class MainActivity extends AppCompatActivity {
         bt_contrast_down.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                toGrayV2(img);
                 contrast_down(img, 100, 156);
             }
         });
@@ -417,18 +559,47 @@ public class MainActivity extends AppCompatActivity {
         bt_histo_equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                toGrayV2(img);
                 histo_equal(img);
             }
         });
 
-        //Button PasseBas
-        Button bt_passe_bas = findViewById(R.id.bt_passe_bas);
-        bt_passe_bas.setOnClickListener(new View.OnClickListener() {
+        //Button Augmenter Contraste en couleur
+        Button bt_histo_color = findViewById(R.id.bt_histo_color);
+        bt_histo_color.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                passe_bas(img);
+                histo_color(img);
             }
         });
+
+        //Button FiltreMoyenneur
+        Button bt_filtre_moy = findViewById(R.id.bt_filtre_moy);
+        bt_filtre_moy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filtre_moyenneur(img, 5); // impair
+            }
+        });
+
+        //Button Filtre Gaussien
+        Button bt_filtre_gaussien = findViewById(R.id.bt_filtre_gaussien);
+        bt_filtre_gaussien.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filtre_gaussien(img,noyau); //définis plus haut
+            }
+        });
+
+        //Button Detect Contours
+        Button bt_detect_cont = findViewById(R.id.bt_detect_cont);
+        bt_detect_cont.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                detect_contours(img,17);
+            }
+        });
+
 
 
 
