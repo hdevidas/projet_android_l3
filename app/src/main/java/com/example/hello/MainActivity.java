@@ -2,6 +2,9 @@ package com.example.hello;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.renderscript.Allocation;
+import androidx.renderscript.RenderScript;
+
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -322,7 +325,46 @@ public class MainActivity extends AppCompatActivity {
 
 
     //------- TD4 --------
-    //RENDERSCRIPT
+
+    private  void  toInvertRS(Bitmap  bmp) {
+        //1)  Creer un  contexte RenderScript
+        RenderScript  rs = RenderScript.create(this);
+
+        //2)  Creer  des  Allocations  pour  passer  les  donnees
+        Allocation  input = Allocation.createFromBitmap(rs , bmp);
+        Allocation  output= Allocation.createTyped(rs , input. getType ());
+
+        //3)  Creer le  script
+        ScriptC_invert  invertScript = new  ScriptC_invert(rs);
+
+        //4)  Copier  les  donnees  dans  les  Allocations
+        // ...
+        // 5)  Initialiser  les  variables  globales  potentielles
+        // ...
+        //
+        // 6)  Lancer  le noyau
+        invertScript.forEach_toInvert(input , output);
+
+        // 7)  Recuperer  les  donnees  des  Allocation(s)
+        output.copyTo(bmp);
+
+        // 8)  Detruire  le context , les  Allocation(s) et le  script
+        input.destroy (); output.destroy ();
+        invertScript.destroy (); rs.destroy ();
+    }
+
+    private  void  toGrayRS(Bitmap  bmp) {
+        RenderScript  rs = RenderScript.create(this);
+        Allocation  input = Allocation.createFromBitmap(rs , bmp);
+        Allocation  output= Allocation.createTyped(rs , input. getType ());
+
+        ScriptC_gray  grayScript = new  ScriptC_gray(rs);
+        grayScript.forEach_toGray(input , output);
+
+        output.copyTo(bmp);
+        input.destroy (); output.destroy ();
+        grayScript.destroy (); rs.destroy ();
+    }
 
 
 
@@ -494,16 +536,16 @@ public class MainActivity extends AppCompatActivity {
         bt_cross.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                crossImg(img);
+                toGrayRS(img);
             }
         });
 
         //Button toGray
-        Button bt_toGray = findViewById(R.id.bt_toGray);
-        bt_toGray.setOnClickListener(new View.OnClickListener() {
+        Button bt_toInvert = findViewById(R.id.bt_toInvert);
+        bt_toInvert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toGray(img);
+                toInvertRS(img);
             }
         });
 
@@ -596,7 +638,7 @@ public class MainActivity extends AppCompatActivity {
         bt_detect_cont.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                detect_contours(img,17);
+                detect_contours(img,15);
             }
         });
 

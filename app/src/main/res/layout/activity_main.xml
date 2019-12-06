@@ -50,10 +50,10 @@
         tools:layout_editor_absoluteX="1dp" />
 
     <Button
-        android:id="@+id/bt_toGray"
+        android:id="@+id/bt_toInvert"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
-        android:text="Gray"
+        android:text="Negatif_RS"
         app:layout_constraintStart_toEndOf="@+id/bt_cross"
         app:layout_constraintTop_toBottomOf="@+id/bt_default" />
 
@@ -112,7 +112,7 @@
         android:layout_width="136dp"
         android:layout_height="wrap_content"
         android:text="Gray V2"
-        app:layout_constraintStart_toEndOf="@+id/bt_toGray"
+        app:layout_constraintStart_toEndOf="@+id/bt_toInvert"
         app:layout_constraintTop_toBottomOf="@+id/bt_default" />
 
     <ImageView
