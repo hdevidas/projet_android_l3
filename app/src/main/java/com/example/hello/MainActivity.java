@@ -28,15 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
     static Bitmap img;
     ImageView imv;
-    //noyau utilisé pour le filtre de convolution (!! DOIT ETRE DE TAILLE 2N+1 * 2N+1 !!)
 
-    /*int noyau[] = new int[]{
-            1, 2, 3, 2, 1,
-            2, 6, 8, 6, 2,
-            3, 8, 10, 8, 3,
-            2, 6, 8, 6, 2,
-            1, 2, 3, 2, 1};*/
-
+    //Utilisation sur fonction de convolution
     int noyau[] = new int[]{
             1, 2, 3, 5, 3, 2, 1,
             2, 6, 8, 12, 8, 6, 2,
@@ -46,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
             2, 6, 8, 12, 8, 6, 2,
             1, 2, 3, 5, 3, 2, 1};
 
+    // ------------------- DEBUT ALGO. ------------------
 
     //------- TD1 --------
 
@@ -93,18 +87,6 @@ public class MainActivity extends AppCompatActivity {
 
     //------- TD2 --------
 
-    //DESSINE UNE CROIX (FONCTION D'ENTRAINEMENT)
-    static void crossImg(Bitmap img){
-        for (int x = 0; x < img.getWidth(); x++) {
-            for (int y = img.getHeight()/2 -25; y < img.getHeight()/2 +25; y++)
-                img.setPixel(x, y, rgb(255, 255, 255));
-        }
-        for (int y = 0; y < img.getHeight(); y++) {
-            for (int x = img.getWidth()/2 -25; x < img.getWidth()/2 +25; x++)
-                img.setPixel(x, y, rgb(255, 255, 255));
-        }
-    }
-
     //COLORISE L'IMAGE EN UNE COULEUR ALEATOIRE
     void colorize(Bitmap img) {
         Random random = new Random();
@@ -136,8 +118,6 @@ public class MainActivity extends AppCompatActivity {
         img.setPixels(pixels, 0, w, 0, 0, w, h);
     }
 
-    //A FAIRE : fonction de conversion personnelle "RGB/HSV"
-
     //------- TD3 --------
 
     //RESET IMAGE PAR DEFAUT
@@ -149,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         imv.setImageBitmap(img);
     }
 
-    //AUGMENTER LE CONTRASTE PAR EXTENSION DE DYNAMIQUE (!!A APPLIQUER SUR IMAGE EN NIVEAU DE GRIS!!)
+    //AUGMENTER LE CONTRASTE PAR EXTENSION DE DYNAMIQUE (A APPLIQUER SUR IMAGE EN NIVEAU DE GRIS)
     void contrast_up(Bitmap img) {
         int w = img.getWidth();
         int h = img.getHeight();
@@ -179,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
         img.setPixels(pixels, 0, w, 0, 0, w, h);
     }
 
+    //DIMINUER LE CONTRASTE (SUR IMAGE EN NIVEAU DE GRIS)
     void contrast_down(Bitmap img,int min_value, int max_value) {
         int w = img.getWidth();
         int h = img.getHeight();
@@ -194,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
         img.setPixels(pixels, 0, w, 0, 0, w, h);
     }
 
+    //AUGMENTER LE CONTRASTE (VERSION POUR IMAGE EN COULEUR)
     void contrast_color(Bitmap img) {
         int w = img.getWidth();
         int h = img.getHeight();
@@ -246,7 +228,7 @@ public class MainActivity extends AppCompatActivity {
         img.setPixels(pixels, 0, w, 0, 0, w, h);
     }
 
-    //AUGMENTER LE CONTRASTE PAR EGALISATION D'HISTOGRAMME
+    //AUGMENTER LE CONTRASTE PAR EGALISATION D'HISTOGRAMME (GRIS)
     void histo_equal(Bitmap img) {
         int w = img.getWidth();
         int h = img.getHeight();
@@ -278,8 +260,7 @@ public class MainActivity extends AppCompatActivity {
         img.setPixels(pixels, 0, w, 0, 0, w, h);
     }
 
-
-    //AUGMENTER LE CONTRASTE PAR EGALISATION D'HISTOGRAMME EN COULEUR
+    //AUGMENTER LE CONTRASTE PAR EGALISATION D'HISTOGRAMME (COULEUR)
     void histo_color(Bitmap img) {
         int w = img.getWidth();
         int h = img.getHeight();
@@ -323,36 +304,21 @@ public class MainActivity extends AppCompatActivity {
         img.setPixels(pixels, 0, w, 0, 0, w, h);
     }
 
-
     //------- TD4 --------
 
+    //INVERSION COULEUR RGB A L'AIDE DE RENDERSCRIPT
     private  void  toInvertRS(Bitmap  bmp) {
-        //1)  Creer un  contexte RenderScript
         RenderScript  rs = RenderScript.create(this);
-
-        //2)  Creer  des  Allocations  pour  passer  les  donnees
         Allocation  input = Allocation.createFromBitmap(rs , bmp);
         Allocation  output= Allocation.createTyped(rs , input. getType ());
-
-        //3)  Creer le  script
         ScriptC_invert  invertScript = new  ScriptC_invert(rs);
-
-        //4)  Copier  les  donnees  dans  les  Allocations
-        // ...
-        // 5)  Initialiser  les  variables  globales  potentielles
-        // ...
-        //
-        // 6)  Lancer  le noyau
         invertScript.forEach_toInvert(input , output);
-
-        // 7)  Recuperer  les  donnees  des  Allocation(s)
         output.copyTo(bmp);
-
-        // 8)  Detruire  le context , les  Allocation(s) et le  script
         input.destroy (); output.destroy ();
         invertScript.destroy (); rs.destroy ();
     }
 
+    //TO GRAY AVEC RENDERSCRIPT
     private  void  toGrayRS(Bitmap  bmp) {
         RenderScript  rs = RenderScript.create(this);
         Allocation  input = Allocation.createFromBitmap(rs , bmp);
@@ -366,12 +332,9 @@ public class MainActivity extends AppCompatActivity {
         grayScript.destroy (); rs.destroy ();
     }
 
-
-
-
     //------- TD5 --------
 
-    //FONCTION FILTRE MOYENNEUR
+    //FONCTION FILTRE MOYENNEUR (ENCORE DES ERREURS)
     void filtre_moyenneur(Bitmap img, int size){
         int w = img.getWidth();
         int h = img.getHeight();
@@ -389,7 +352,6 @@ public class MainActivity extends AppCompatActivity {
 
         for (int x = offset; x < img.getWidth()-offset; x++) {
             for (int y = offset; y < img.getHeight()-offset; y++){
-
                 r = 0;
                 g = 0;
                 b = 0;
@@ -410,8 +372,6 @@ public class MainActivity extends AppCompatActivity {
                 b = b/coefficient;
 
                 pixels_new[w*x+y] = ((int)r & 0xff) << 16 | ((int)g & 0xff) << 8 | ((int)b & 0xff);
-
-
 
             }
         }
@@ -458,22 +418,16 @@ public class MainActivity extends AppCompatActivity {
                         counter++;
                     }
                 }
-
                 r = r/coefficient;
                 g = g/coefficient;
                 b = b/coefficient;
 
                 pixels_new[w*x+y] = ((int)r & 0xff) << 16 | ((int)g & 0xff) << 8 | ((int)b & 0xff);
-
-
-
             }
         }
 
         img.setPixels(pixels_new, 0, w, 0, 0, w, h);
-
     }
-
 
     //FONCTION DE DETECTION DE CONTOURS
     void detect_contours(Bitmap img, int coefficient){
@@ -510,10 +464,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         img.setPixels(new_pixels, 0, w, 0, 0, w, h);
-
     }
 
-
+    // ------------------- FIN ALGO. ------------------
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -522,7 +475,9 @@ public class MainActivity extends AppCompatActivity {
         TextView tv = (TextView) findViewById(R.id.textview);
         imv = (ImageView) findViewById(R.id.imgsynth);
 
-        //Button default
+        // ----------------------BOUTONS---------------------
+
+        //Bouton default (Remettre l'image par défaut) #0
         Button bt_default = findViewById(R.id.bt_default);
         bt_default.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -531,43 +486,43 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Button cross
-        Button bt_cross = findViewById(R.id.bt_cross);
-        bt_cross.setOnClickListener(new View.OnClickListener() {
+        //Bouton Gray v1 (codé avec getpixel) #1
+        Button bt_gray_1 = findViewById(R.id.bt_gray_1);
+        bt_gray_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toGrayRS(img);
+                toGray(img);
             }
         });
 
-        //Button toGray
-        Button bt_toInvert = findViewById(R.id.bt_toInvert);
-        bt_toInvert.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toInvertRS(img);
-            }
-        });
-
-        //Button toGrayV2
-        Button bt_toGrayV2 = findViewById(R.id.bt_toGrayV2);
-        bt_toGrayV2.setOnClickListener(new View.OnClickListener() {
+        //Bouton Gray v2 (codé avec getpixels) #2
+        Button bt_gray_2 = findViewById(R.id.bt_gray_2);
+        bt_gray_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 toGrayV2(img);
             }
         });
 
-        //Button Colorize
-        Button bt_colorize = findViewById(R.id.bt_colorize);
-        bt_colorize.setOnClickListener(new View.OnClickListener() {
+        //Bouton Gray v3 (codé avec renderscript) #3
+        Button bt_gray_3 = findViewById(R.id.bt_gray_3);
+        bt_gray_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colorize(img);
+                toGrayRS(img);
             }
         });
 
-        //Button Augmenter Contraste
+        //Bouton Diminuer Contraste (utilisation uniquement sur image en niveau de gris) #4
+        Button bt_contrast_down = findViewById(R.id.bt_contrast_down);
+        bt_contrast_down.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toGrayV2(img);
+                contrast_down(img, 100, 156);
+            }
+        });
+        //Bouton Augmenter Contraste (utilisation uniquement sur image en niveau de gris) #5
         Button bt_contrast_up = findViewById(R.id.bt_contrast_up);
         bt_contrast_up.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -577,26 +532,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Button Diminuer Contraste
-        Button bt_contrast_down = findViewById(R.id.bt_contrast_down);
-        bt_contrast_down.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toGrayV2(img);
-                contrast_down(img, 100, 156);
-            }
-        });
-
-        //Button Augmenter Contraste EN COULEURS
-        Button bt_contrast_color = findViewById(R.id.bt_contrast_color);
-        bt_contrast_color.setOnClickListener(new View.OnClickListener() {
+        //Bouton Augmenter Contraste (utilisation possible sur image en couleurs) #6
+        Button bt_contrast_up_color = findViewById(R.id.bt_contrast_up_color);
+        bt_contrast_up_color.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 contrast_color(img);
             }
         });
 
-        //Button Augmenter Contraste
+        //Bouton Coloriser (change les couleurs de l'image aléatoirement) #7
+        Button bt_colorize = findViewById(R.id.bt_colorize);
+        bt_colorize.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                colorize(img);
+            }
+        });
+
+        //Bouton Egalisation d'histogramme (utilisation sur image en niveau de gris) #8
         Button bt_histo_equal = findViewById(R.id.bt_histo_equal);
         bt_histo_equal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -606,25 +560,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Button Augmenter Contraste en couleur
-        Button bt_histo_color = findViewById(R.id.bt_histo_color);
-        bt_histo_color.setOnClickListener(new View.OnClickListener() {
+        //Bouton Egalisation d'histogramme (utilisation sur image en couleur) #9
+        Button bt_histo_equal_color = findViewById(R.id.bt_histo_equal_color);
+        bt_histo_equal_color.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 histo_color(img);
             }
         });
 
-        //Button FiltreMoyenneur
-        Button bt_filtre_moy = findViewById(R.id.bt_filtre_moy);
-        bt_filtre_moy.setOnClickListener(new View.OnClickListener() {
+        //Bouton Inversion couleurs (codé avec Renderscript) #10
+        Button bt_invert = findViewById(R.id.bt_invert);
+        bt_invert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                filtre_moyenneur(img, 5); // impair
+                toInvertRS(img);
             }
         });
 
-        //Button Filtre Gaussien
+        //Button Filtre Gaussien (flous) #11
         Button bt_filtre_gaussien = findViewById(R.id.bt_filtre_gaussien);
         bt_filtre_gaussien.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -633,7 +587,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Button Detect Contours
+        //Button Detect Contours #12
         Button bt_detect_cont = findViewById(R.id.bt_detect_cont);
         bt_detect_cont.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -642,15 +596,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-
+        // ------------------- FIN BOUTONS ------------------
 
         //Affichage de l'image
         defaultImg();
         imv.setImageBitmap(img);
 
-        //Affichage taille de l'image
+        //Affichage dimensions image
         tv.setText("Taille de l'image: " + img.getWidth() + "px * " + img.getHeight() +"px");
     }
 }

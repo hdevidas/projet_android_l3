@@ -18,102 +18,103 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/bt_contrast_down"
-        android:layout_width="136dp"
-        android:layout_height="wrap_content"
-        android:text="Dim. Contr."
-        app:layout_constraintStart_toEndOf="@+id/bt_contrast_up"
-        app:layout_constraintTop_toBottomOf="@+id/bt_cross" />
-
-    <Button
-        android:id="@+id/bt_detect_cont"
-        android:layout_width="136dp"
-        android:layout_height="wrap_content"
-        android:text="Detection Contours"
-        app:layout_constraintStart_toEndOf="@+id/bt_filtre_gaussien"
-        app:layout_constraintTop_toBottomOf="@+id/bt_colorize" />
-
-    <Button
-        android:id="@+id/bt_histo_color"
-        android:layout_width="136dp"
-        android:layout_height="wrap_content"
-        android:text="Egal. Histo. Color"
-        app:layout_constraintStart_toEndOf="@+id/bt_histo_equal"
-        app:layout_constraintTop_toBottomOf="@+id/bt_contrast_up" />
-
-    <Button
-        android:id="@+id/bt_filtre_moy"
-        android:layout_width="135dp"
-        android:layout_height="55dp"
-        android:text="Filtre Moy"
-        app:layout_constraintTop_toBottomOf="@+id/bt_colorize"
-        tools:layout_editor_absoluteX="1dp" />
-
-    <Button
-        android:id="@+id/bt_toInvert"
-        android:layout_width="136dp"
-        android:layout_height="wrap_content"
-        android:text="Negatif_RS"
-        app:layout_constraintStart_toEndOf="@+id/bt_cross"
-        app:layout_constraintTop_toBottomOf="@+id/bt_default" />
-
-    <Button
-        android:id="@+id/bt_contrast_up"
-        android:layout_width="135dp"
-        android:layout_height="wrap_content"
-        android:text="Aug. Contr."
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_cross" />
-
-    <Button
-        android:id="@+id/bt_contrast_color"
-        android:layout_width="136dp"
-        android:layout_height="wrap_content"
-        android:text="Col Contr."
-        app:layout_constraintStart_toEndOf="@+id/bt_contrast_down"
-        app:layout_constraintTop_toBottomOf="@+id/bt_cross" />
-
-    <Button
-        android:id="@+id/bt_histo_equal"
-        android:layout_width="136dp"
-        android:layout_height="54dp"
-        android:text="Egal. Histo."
-        app:layout_constraintStart_toEndOf="@+id/bt_colorize"
-        app:layout_constraintTop_toBottomOf="@+id/bt_contrast_up" />
-
-    <Button
-        android:id="@+id/bt_cross"
+        android:id="@+id/bt_gray_1"
         android:layout_width="135dp"
         android:layout_height="wrap_content"
         android:layout_above="@id/bt_default"
         android:layout_centerInParent="true"
-        android:text="Cross"
+        android:text="toGray (getpixel)"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bt_default" />
 
     <Button
-        android:id="@+id/bt_filtre_gaussien"
+        android:id="@+id/bt_gray_2"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
-        android:text="Filtre Gaussien"
-        app:layout_constraintStart_toEndOf="@+id/bt_filtre_moy"
-        app:layout_constraintTop_toBottomOf="@+id/bt_colorize" />
+        android:text="toGray (getpixelS)"
+        app:layout_constraintStart_toEndOf="@+id/bt_gray_1"
+        app:layout_constraintTop_toBottomOf="@+id/bt_default" />
+
+    <Button
+        android:id="@+id/bt_gray_3"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:text="toGray (Renderscript)"
+        app:layout_constraintStart_toEndOf="@+id/bt_gray_2"
+        app:layout_constraintTop_toBottomOf="@+id/bt_default" />
+
+    <Button
+        android:id="@+id/bt_contrast_down"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:text="Contrast - (Gray)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_gray_1" />
+
+    <Button
+        android:id="@+id/bt_contrast_up"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:text="Contrast + (Gray)"
+        app:layout_constraintStart_toEndOf="@+id/bt_contrast_down"
+        app:layout_constraintTop_toBottomOf="@+id/bt_gray_1" />
+
+    <Button
+        android:id="@+id/bt_contrast_up_color"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:text="Contrast + (Color)"
+        app:layout_constraintStart_toEndOf="@+id/bt_contrast_up"
+        app:layout_constraintTop_toBottomOf="@+id/bt_gray_1" />
 
     <Button
         android:id="@+id/bt_colorize"
         android:layout_width="135dp"
         android:layout_height="54dp"
-        android:text="Colorize"
+        android:text="Random Colorize"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bt_contrast_up" />
 
     <Button
-        android:id="@+id/bt_toGrayV2"
+        android:id="@+id/bt_histo_equal"
+        android:layout_width="136dp"
+        android:layout_height="54dp"
+        android:text="Egal. Histo. (Gray)"
+        app:layout_constraintStart_toEndOf="@+id/bt_colorize"
+        app:layout_constraintTop_toBottomOf="@+id/bt_contrast_up" />
+
+    <Button
+        android:id="@+id/bt_histo_equal_color"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
-        android:text="Gray V2"
-        app:layout_constraintStart_toEndOf="@+id/bt_toInvert"
-        app:layout_constraintTop_toBottomOf="@+id/bt_default" />
+        android:text="Egal. Histo. (Color)"
+        app:layout_constraintStart_toEndOf="@+id/bt_histo_equal"
+        app:layout_constraintTop_toBottomOf="@+id/bt_contrast_up" />
+
+    <Button
+        android:id="@+id/bt_invert"
+        android:layout_width="135dp"
+        android:layout_height="55dp"
+        android:text="Invert (Renderscript)"
+        app:layout_constraintTop_toBottomOf="@+id/bt_colorize"
+        tools:layout_editor_absoluteX="1dp" />
+
+    <Button
+        android:id="@+id/bt_filtre_gaussien"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:text="Gaussian Filter"
+        app:layout_constraintStart_toEndOf="@+id/bt_invert"
+        app:layout_constraintTop_toBottomOf="@+id/bt_colorize" />
+
+    <Button
+        android:id="@+id/bt_detect_cont"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:text="Edge Detection"
+        app:layout_constraintStart_toEndOf="@+id/bt_filtre_gaussien"
+        app:layout_constraintTop_toBottomOf="@+id/bt_colorize" />
+
 
     <ImageView
         android:id="@+id/imgsynth"
